@@ -1,0 +1,26 @@
+\subsection{Notation, Units, and Quasinormal Mode Conventions}
+\label{sec:notation}
+
+Throughout this work, we retain explicit factors of $c$, $G$, and $\hbar$ in SI units unless otherwise noted. Following standard conventions in gravitational-wave ringdown spectroscopy, time-domain perturbations are expanded in complex quasinormal mode (QNM) angular frequencies:
+\begin{equation}
+    \tilde{\omega}_n = \omega_n - i\,\omega_{I,n} = 2\pi f_n - \frac{i}{\tau_n},
+\end{equation}
+where $\omega_n = \mathrm{Re}(\tilde{\omega}_n)$ denotes the oscillation angular frequency, $\omega_{I,n} = -\mathrm{Im}(\tilde{\omega}_n) > 0$ denotes the exponential decay rate, and $\tau_n = \omega_{I,n}^{-1}$ is the characteristic $e$-folding damping time of overtone $n$.
+
+To maintain direct dimensional cancellation with quantum energy relations ($E = \hbar\omega$) and prevent extraneous factors of $2\pi$ in time-domain phase evolution ($e^{-i\tilde{\omega}_n t}$), we adopt the reduced Planck normalization $\Gamma_{\hbar}$ for the imaginary dissipative term in the master dispersion relation:
+\begin{equation}
+    E^2 = p^2 c^2 \left[ 1 + \alpha_0\,\Theta(\mathcal{S} - \mathcal{S}_{\mathrm{crit}}) \left(\frac{E}{E_P}\right)^k \right] - i\,\Gamma_{\hbar}(E, \nu_{\mathrm{eff}}),
+\end{equation}
+where $E_P = \sqrt{\hbar c^5 / G}$ is the Planck energy, $\alpha_0$ and $\beta$ are dimensionless order-unity coupling constants, and the viscous damping term carries exact dimensions of squared energy ($[\Gamma_{\hbar}] = \mathrm{J}^2$):
+\begin{equation}
+    \Gamma_{\hbar}(E, \nu_{\mathrm{eff}}) = \beta \left(\frac{\nu_{\mathrm{eff}}}{c^2}\right) \frac{E^3}{\hbar}.
+\end{equation}
+In the perturbative damping regime ($\Gamma_{\hbar} \ll E^2$), taking the imaginary part of $\tilde{\omega}_n$ yields the additive viscous decay rate:
+\begin{equation}
+    \omega_{I,\mathrm{CSV}}(\omega_n) = \frac{\Gamma_{\hbar}}{2\hbar E} = \frac{\beta\,\nu_{\mathrm{eff}}\,\omega_n^2}{2 c^2},
+\end{equation}
+which shifts the effective ringdown damping time relative to the General Relativistic Berti--Cardoso--Starinets (BCS) baseline $\tau_n^{\mathrm{GR}}$ according to:
+\begin{equation}
+    \frac{1}{\tau_n^{\mathrm{eff}}} = \frac{1}{\tau_n^{\mathrm{GR}}} + \frac{\beta\,\nu_{\mathrm{eff}}\,\omega_n^2}{2 c^2}.
+\end{equation}
+Finally, the effective kinematic viscosity $\nu_{\mathrm{eff}}(\mathcal{S}) = \nu_0\,\Theta(\mathcal{S} - \mathcal{S}_{\mathrm{crit}})$ is governed by the Lorentz-covariant local strain invariant $\mathcal{S}$. For numerical stability across threshold boundaries, the sharp Heaviside step $\Theta$ is regularized via the smooth logistic transition $\Theta_\Delta(\mathcal{S}) = \frac{1}{2}\left[1 + \tanh\left((\mathcal{S} - \mathcal{S}_{\mathrm{crit}})/\Delta\mathcal{S}\right)\right]$, ensuring $\nu_{\mathrm{eff}} \to 0$ in weak-field intergalactic space while activating quadratic overtone damping exclusively within extreme strong-field curvature zones.
