@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Chromatic Spacetime Viscosity (CSV) Framework v2.5: Simulation Modules and Monte Carlo Parameter Recovery Datasets",
+    "upload_type": "dataset",
+    "publication_type": "article",
+    "description": "Comprehensive simulation payloads, strain-gated master dispersion models, BCS Kerr quasinormal mode overtone damping analyses, and 500-trial Monte Carlo parameter recovery datasets for the Chromatic Spacetime Viscosity (CSV) framework v2.5.",
+    "creators": [
+      {
+        "name": "Gillispie, Jesse Arron",
+        "affiliation": "Independent Technology & Theoretical Physics Research"
+      }
+    ],
+    "keywords": [
+      "Chromatic Spacetime Viscosity",
+      "Fluid-Gravity Duality",
+      "Gravitational Waves",
+      "Quasinormal Modes",
+      "Monte Carlo Simulation",
+      "Sub-Planckian Regularization"
+    ],
+    "access_right": "open",
+    "license": "cc-by-4.0"
+  }
+}
