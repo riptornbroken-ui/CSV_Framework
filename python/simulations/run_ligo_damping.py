@@ -1,33 +1,41 @@
 #!/usr/bin/env python3
 """
 Chromatic Spacetime Viscosity (CSV) Framework v2.5
-Relativistic-Scale Viscosity & LIGO Threshold Simulation
+Kerr Spin & Overtone Mode (n=0,1,2) Damping Simulation
 """
 
 import numpy as np
 
-def simulate_relativistic_damping():
-    print("[*] Initializing CSV Relativistic Viscosity & Threshold Simulation...")
+def simulate_kerr_overtones():
+    print("[*] Initializing CSV Kerr Spin & Overtone Damping Simulation...")
     
-    # Frequencies and relativistic viscosity bounds
-    frequencies = [200.0, 500.0, 800.0] # Hz
-    nu_relativistic = [1.0e8, 1.0e10, 1.0e12, 5.0e12] # m^2/s
-    c = 3.0e8 # m/s
+    M = 60.0 # Solar masses
+    f_base = 32.0 / M * 1000.0 # Approximate fundamental QNM scale (~533 Hz for 60 M_sun)
     
-    print("    ---------------------------------------------------")
-    print(f"    {'Freq (Hz)':<10} {'Nu_eff (m^2/s)':<15} {'Damping (s^-1)':<15} {'Status':<15}")
-    print("    ---------------------------------------------------")
+    overtones = {
+        "n=0 (Fundamental)": 1.0,
+        "n=1 (1st Overtone)": 1.18,
+        "n=2 (2nd Overtone)": 1.35
+    }
     
-    for f in frequencies:
-        omega = 2 * np.pi * f
-        k_gw = omega / c
-        for nu in nu_relativistic:
-            gamma = nu * (k_gw ** 2)
-            status = "Constrained" if gamma > 25.0 else "Observable/Safe"
-            print(f"    {f:<10.1f} {nu:<15.1e} {gamma:<15.2e} {status:<15}")
+    spins = [0.0, 0.7, 0.9] # Dimensionless spin parameter a*
+    nu_bound = 1.0e12 # m^2/s observational ceiling
+    c = 3.0e8
+    
+    print("    -------------------------------------------------------------------")
+    print(f"    {'Overtone':<22} {'Spin (a*)':<10} {'Freq (Hz)':<12} {'Damping (s^-1)':<15} {'Status':<10}")
+    print("    -------------------------------------------------------------------")
+    
+    for name, mult in overtones.items():
+        for a in spins:
+            f_qnm = f_base * mult * (1.0 + 0.3 * a)
+            k_gw = (2 * np.pi * f_qnm) / c
+            gamma = nu_bound * (k_gw ** 2)
+            status = "Constrained" if gamma > 25.0 else "Safe"
+            print(f"    {name:<22} {a:<10.1f} {f_qnm:<12.1f} {gamma:<15.2e} {status:<10}")
             
-    print("    ---------------------------------------------------")
-    print("[+] Simulation Complete. Threshold constraint identified near nu_eff ~ 10^12 m^2/s.")
+    print("    -------------------------------------------------------------------")
+    print("[+] Kerr Overtone Simulation Complete.")
 
 if __name__ == '__main__':
-    simulate_relativistic_damping()
+    simulate_kerr_overtones()
