@@ -1,0 +1,47 @@
+{
+    "metadata": {
+        "title": "Chromatic Spacetime Viscosity (CSV) Framework: 3D Xel Lattice Core Saturation & Boundary Layer Simulation",
+        "upload_type": "dataset",
+        "description": "Simulation telemetry and radial shell density profiles demonstrating sub-Planckian grid saturation, shear stress locking, and causal pinch-off around isolated black hole condensate cores.",
+        "creators": [
+            {
+                "name": "Gillispie, Jesse Arron",
+                "affiliation": "Independent Researcher"
+            }
+        ],
+        "keywords": [
+            "Chromatic Spacetime Viscosity",
+            "Sub-Planckian Xel Lattice",
+            "Quantum Gravity",
+            "Causal Pinch-Off",
+            "Singularity Resolution",
+            "Discrete Spacetime"
+        ],
+        "access_right": "open",
+        "license": "cc-by-4.0"
+    },
+    "simulation_parameters": {
+        "grid_dimensions": "33x33x33",
+        "total_nodes": 35937,
+        "xel_edge_length_meters": 1e-40,
+        "sub_planckian_density_ceiling_kg_m3": 2.17643e+112
+    },
+    "results_summary": {
+        "saturated_core_nodes": 81,
+        "max_shear_stress_g_alpha_beta": 8.0327e+111,
+        "mean_lattice_density_kg_m3": 1.026e+111,
+        "pinch_off_status": "ACTIVE (Core Isolated)"
+    },
+    "radial_shell_profile": {
+        "0": 2.1764e+112,
+        "1": 2.1764e+112,
+        "2": 2.1764e+112,
+        "3": 1.646e+112,
+        "4": 9.8563e+111,
+        "5": 6.2235e+111,
+        "6": 4.2929e+111,
+        "7": 3.2138e+111,
+        "8": 2.4927e+111,
+        "9": 1.9575e+111
+    }
+}
