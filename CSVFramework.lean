@@ -9,11 +9,11 @@ namespace CSV.Framework
   delta_x  : displacement scale (m)
   ell_xel  : xel edge length (m)
   rho_ceil : ceiling (kg m^-3) -/
-def lattice_density (rho_base norm_G kappa_G delta_x ell_xel rho_ceil : ℝ) : ℝ :=
+noncomputable def lattice_density (rho_base norm_G kappa_G delta_x ell_xel rho_ceil : ℝ) : ℝ :=
   min (rho_base * (1 + (norm_G / kappa_G) * (delta_x / ell_xel))) rho_ceil
 
 /-- The V2.5 saturating form, with ceiling parameter T. -/
-def old_saturating (T b : ℝ) : ℝ := b / (1 + (b / T) ^ 2)
+noncomputable def old_saturating (T b : ℝ) : ℝ := b / (1 + (b / T) ^ 2)
 
 /-- The correction factor is nonnegative when its inputs are. -/
 theorem factor_nonneg (norm_G kappa_G delta_x ell_xel : ℝ)
@@ -62,6 +62,7 @@ theorem old_not_monotone :
     unfold old_saturating
     norm_num
   rw [h1, h10] at key
-  norm_num at key
+  have hlt : (10:ℝ) / 101 < 1 / 2 := by norm_num
+  linarith
 
 end CSV.Framework
