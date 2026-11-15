@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Framework - Interactive Sub-Planckian Lattice Infographic</title>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #38bdf8;
+            margin-bottom: 5px;
+            font-size: 2rem;
+        }
+        p.subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .canvas-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        canvas {
+            background: #090d16;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            max-width: 100%;
+            height: auto;
+        }
+        .controls-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            font-weight: 600;
+            color: #38bdf8;
+            font-size: 0.9rem;
+        }
+        input[type="range"] {
+            width: 100%;
+            accent-color: #38bdf8;
+        }
+        .telemetry-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #34d399;
+        }
+        .btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #1d4ed8;
+        }
+        .modes {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Chromatic Spacetime Viscosity (CSV) Framework</h1>
+    <p class="subtitle">Interactive Sub-Planckian Xel Lattice & Causal Pinch-Off Simulation</p>
+</header>
+
+<div class="container">
+    <div class="canvas-card">
+        <canvas id="latticeCanvas" width="700" height="700"></canvas>
+        <p style="margin-top: 10px; color: #94a3b8; font-size: 0.85rem;">2D Slice projection of the discrete $\mathbb{Z}^3$ xel grid.</p>
+    </div>
+
+    <div class="controls-card">
+        <h3>Simulation Parameters</h3>
+        
+        <div class="control-group">
+            <label for="energySlider">Energy Injection ($E$): <span id="energyVal">1.0</span>x</label>
+            <input type="range" id="energySlider" min="0.1" max="5.0" step="0.1" value="1.0">
+        </div>
+
+        <div class="control-group">
+            <label>Mode Select</label>
+            <div class="modes">
+                <button class="btn" id="modeNormal">1. Vacuum State</button>
+                <button class="btn" id="modePinch">2. Causal Pinch-Off</button>
+                <button class="btn" id="modeHorizon">3. Black Hole Event Horizon</button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Live Telemetry (CSV v2.5)</label>
+            <div class="telemetry-box" id="telemetryOutput">
+                Status: STABLE<br>
+                Grid Density: 1.02e111 kg/m³<br>
+                Max Shear (G): 8.03e111<br>
+                Saturated Nodes: 81 / 1089<br>
+                Pinch-Off: ACTIVE
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const canvas = document.getElementById('latticeCanvas');
+const ctx = canvas.getContext('2d');
+const energySlider = document.getElementById('energySlider');
+const energyVal = document.getElementById('energyVal');
+const telemetryOutput = document.getElementById('telemetryOutput');
+
+let currentMode = 'pinch';
+const gridSize = 33;
+const spacing = canvas.width / (gridSize + 2);
+
+function drawLattice() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const energyMult = parseFloat(energySlider.value);
+    energyVal.textContent = energyMult.toFixed(1);
+
+    const centerX = gridSize / 2;
+    const centerY = gridSize / 2;
+
+    let saturatedCount = 0;
+    let maxG = 0;
+
+    for (let x = 0; x < gridSize; x++) {
+        for (let y = 0; y < gridSize; y++) {
+            const dx = x - centerX;
+            const dy = y - centerY;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            
+            let densityFactor = Math.max(0, 1 - (dist / (centerX * 0.8))) * energyMult;
+            if (currentMode === 'normal') densityFactor *= 0.2;
+            if (currentMode === 'horizon' && dist < 6) densityFactor = 3.0;
+
+            let nodeColor = '#38bdf8'; // Normal xel (blue)
+            let radius = 3;
+
+            if (densityFactor > 2.0) {
+                nodeColor = '#ef4444'; // Saturated / Pinch-off core (red)
+                radius = 5;
+                saturatedCount++;
+            } else if (densityFactor > 1.0) {
+                nodeColor = '#f59e0b'; // Transition shell (gold)
+                radius = 4;
+            }
+
+            if (densityFactor > maxG) maxG = densityFactor;
+
+            const px = (x + 1) * spacing + (Math.sin(Date.now() * 0.002 + dist) * densityFactor * 0.5);
+            const py = (y + 1) * spacing + (Math.cos(Date.now() * 0.002 + dist) * densityFactor * 0.5);
+
+            ctx.beginPath();
+            ctx.arc(px, py, radius, 0, Math.PI * 2);
+            ctx.fillStyle = nodeColor;
+            ctx.fill();
+
+            // Draw grid connections
+            if (x < gridSize - 1 && y < gridSize - 1) {
+                ctx.strokeStyle = densityFactor > 1.5 ? 'rgba(239, 68, 68, 0.3)' : 'rgba(56, 189, 248, 0.08)';
+                ctx.lineWidth = densityFactor > 1.5 ? 1.5 : 0.5;
+                ctx.beginPath();
+                ctx.moveTo(px, py);
+                ctx.lineTo((x + 2) * spacing, (y + 1) * spacing);
+                ctx.stroke();
+            }
+        }
+    }
+
+    // Draw boundary ring
+    if (currentMode === 'horizon' || currentMode === 'pinch') {
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, 6 * spacing, 0, Math.PI * 2);
+        ctx.strokeStyle = currentMode === 'horizon' ? '#ec4899' : '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([4, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+    }
+
+    // Update Telemetry Box
+    const calcDensity = (1.026 + (energyMult * 0.5)) * 1.0e111;
+    telemetryOutput.innerHTML = `
+        Mode: ${currentMode.toUpperCase()}<br>
+        Grid Density: ${calcDensity.toExponential(2)} kg/m³<br>
+        Max Shear (G): ${(8.03 * energyMult).toExponential(2)}<br>
+        Saturated Nodes: ${saturatedCount} / ${gridSize * gridSize}<br>
+        Pinch-Off: ${saturatedCount > 0 ? 'ACTIVE (Isolated)' : 'INACTIVE'}
+    `;
+
+    requestAnimationFrame(drawLattice);
+}
+
+document.getElementById('modeNormal').addEventListener('click', () => currentMode = 'normal');
+document.getElementById('modePinch').addEventListener('click', () => currentMode = 'pinch');
+document.getElementById('modeHorizon').addEventListener('click', () => currentMode = 'horizon');
+
+drawLattice();
+</script>
+
+</body>
+</html>
