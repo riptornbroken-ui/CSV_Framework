@@ -1,0 +1,38 @@
+galaxies: 191   points after cuts: 3421
+seed 0 fold 0: K=5.60 a0_csv=1.15e-11 a0_mond=1.06e-10 chi2/N newton=92.89 csv=13.78 mond=13.96
+seed 0 fold 1: K=5.50 a0_csv=1.43e-11 a0_mond=1.26e-10 chi2/N newton=74.47 csv=6.25 mond=6.27
+seed 0 fold 2: K=5.40 a0_csv=1.33e-11 a0_mond=1.14e-10 chi2/N newton=75.67 csv=8.80 mond=8.44
+seed 0 fold 3: K=5.20 a0_csv=1.54e-11 a0_mond=1.21e-10 chi2/N newton=45.71 csv=5.15 mond=4.94
+seed 0 fold 4: K=5.00 a0_csv=1.65e-11 a0_mond=1.21e-10 chi2/N newton=52.00 csv=11.72 mond=11.17
+seed 1 fold 0: K=5.00 a0_csv=1.65e-11 a0_mond=1.23e-10 chi2/N newton=46.32 csv=5.41 mond=5.66
+seed 1 fold 1: K=5.60 a0_csv=1.15e-11 a0_mond=1.06e-10 chi2/N newton=98.49 csv=14.14 mond=14.43
+seed 1 fold 2: K=5.00 a0_csv=1.54e-11 a0_mond=1.17e-10 chi2/N newton=86.58 csv=9.31 mond=8.98
+seed 1 fold 3: K=5.30 a0_csv=1.54e-11 a0_mond=1.26e-10 chi2/N newton=40.60 csv=10.28 mond=9.50
+seed 1 fold 4: K=5.50 a0_csv=1.33e-11 a0_mond=1.17e-10 chi2/N newton=60.92 csv=7.01 mond=6.37
+seed 2 fold 0: K=5.50 a0_csv=1.24e-11 a0_mond=1.10e-10 chi2/N newton=85.74 csv=13.25 mond=13.14
+seed 2 fold 1: K=4.90 a0_csv=1.78e-11 a0_mond=1.26e-10 chi2/N newton=37.47 csv=9.58 mond=8.47
+seed 2 fold 2: K=5.10 a0_csv=1.54e-11 a0_mond=1.21e-10 chi2/N newton=50.06 csv=4.04 mond=3.96
+seed 2 fold 3: K=5.70 a0_csv=1.24e-11 a0_mond=1.17e-10 chi2/N newton=75.20 csv=7.87 mond=7.85
+seed 2 fold 4: K=5.20 a0_csv=1.43e-11 a0_mond=1.14e-10 chi2/N newton=93.32 csv=10.61 mond=10.95
+seed 3 fold 0: K=5.10 a0_csv=1.54e-11 a0_mond=1.21e-10 chi2/N newton=33.88 csv=5.06 mond=5.07
+seed 3 fold 1: K=5.00 a0_csv=1.54e-11 a0_mond=1.14e-10 chi2/N newton=77.73 csv=9.79 mond=9.46
+seed 3 fold 2: K=5.70 a0_csv=1.15e-11 a0_mond=1.10e-10 chi2/N newton=80.67 csv=14.91 mond=14.49
+seed 3 fold 3: K=5.60 a0_csv=1.43e-11 a0_mond=1.28e-10 chi2/N newton=79.89 csv=9.75 mond=9.67
+seed 3 fold 4: K=5.30 a0_csv=1.43e-11 a0_mond=1.19e-10 chi2/N newton=70.59 csv=6.51 mond=6.36
+seed 4 fold 0: K=5.20 a0_csv=1.54e-11 a0_mond=1.21e-10 chi2/N newton=45.46 csv=4.91 mond=4.55
+seed 4 fold 1: K=5.00 a0_csv=1.65e-11 a0_mond=1.21e-10 chi2/N newton=66.14 csv=8.41 mond=8.47
+seed 4 fold 2: K=5.60 a0_csv=1.24e-11 a0_mond=1.14e-10 chi2/N newton=60.90 csv=12.75 mond=12.84
+seed 4 fold 3: K=4.70 a0_csv=1.65e-11 a0_mond=1.14e-10 chi2/N newton=91.08 csv=10.87 mond=10.36
+seed 4 fold 4: K=5.80 a0_csv=1.24e-11 a0_mond=1.19e-10 chi2/N newton=79.65 csv=9.32 mond=8.58
+
+=== Held-out chi2/N across all folds (mean +/- sd) ===
+  Newtonian baryons : 68.056 +/- 19.055
+  MOND (simple)     : 8.958 +/- 3.094
+  CSV (bounded)     : 9.179 +/- 3.075
+
+CSV minus MOND per fold: mean +0.221, CSV better in 8 of 25 folds
+K spread across folds: 4.70 to 5.80
+
+Wrote /data/data/com.termux/files/home/projects/CSV_Framework/csv_cv_results.csv
+
+Saved csv_cv_ud0.5_ub0.7_err5_all.csv

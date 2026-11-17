@@ -1,0 +1,308 @@
+{
+    "simulation_metadata": {
+        "model": "Power-Law Xel Lattice",
+        "grid_size": 64
+    },
+    "telemetry_records": [
+        {
+            "step": 0,
+            "max_shear_rate": 1.7320508075688772,
+            "mean_viscosity": 74.62236665801602,
+            "max_velocity": 2.0
+        },
+        {
+            "step": 1,
+            "max_shear_rate": 1.7095752580451498,
+            "mean_viscosity": 72.77667525978275,
+            "max_velocity": 1.999649955117682
+        },
+        {
+            "step": 2,
+            "max_shear_rate": 1.68787110112387,
+            "mean_viscosity": 71.38955960614106,
+            "max_velocity": 1.9990937589154343
+        },
+        {
+            "step": 3,
+            "max_shear_rate": 1.6667173609812755,
+            "mean_viscosity": 70.23713643680637,
+            "max_velocity": 1.9983670914555356
+        },
+        {
+            "step": 4,
+            "max_shear_rate": 1.646054082340953,
+            "mean_viscosity": 69.32192533448426,
+            "max_velocity": 1.9974907716623744
+        },
+        {
+            "step": 5,
+            "max_shear_rate": 1.6258436849782716,
+            "mean_viscosity": 68.64001030591945,
+            "max_velocity": 1.9964792660270525
+        },
+        {
+            "step": 6,
+            "max_shear_rate": 1.6060584848334056,
+            "mean_viscosity": 68.07152250106589,
+            "max_velocity": 1.9953435555352363
+        },
+        {
+            "step": 7,
+            "max_shear_rate": 1.5866763652409956,
+            "mean_viscosity": 67.56281168497766,
+            "max_velocity": 1.9940924366519643
+        },
+        {
+            "step": 8,
+            "max_shear_rate": 1.5676787894565558,
+            "mean_viscosity": 66.9418245648368,
+            "max_velocity": 1.9927332170908834
+        },
+        {
+            "step": 9,
+            "max_shear_rate": 1.5490497238324379,
+            "mean_viscosity": 66.35123441205275,
+            "max_velocity": 1.9912721294004625
+        },
+        {
+            "step": 10,
+            "max_shear_rate": 1.5307749895769436,
+            "mean_viscosity": 65.82046414581883,
+            "max_velocity": 1.989714595801987
+        },
+        {
+            "step": 11,
+            "max_shear_rate": 1.5128418422867655,
+            "mean_viscosity": 65.18834058220745,
+            "max_velocity": 1.988065407446396
+        },
+        {
+            "step": 12,
+            "max_shear_rate": 1.4952386836237797,
+            "mean_viscosity": 64.43976287174422,
+            "max_velocity": 1.9863288510779178
+        },
+        {
+            "step": 13,
+            "max_shear_rate": 1.4779548548697954,
+            "mean_viscosity": 63.47753764772568,
+            "max_velocity": 1.9845088016659278
+        },
+        {
+            "step": 14,
+            "max_shear_rate": 1.4609804839011047,
+            "mean_viscosity": 62.13734797385908,
+            "max_velocity": 1.9826087920814286
+        },
+        {
+            "step": 15,
+            "max_shear_rate": 1.4443063684961726,
+            "mean_viscosity": 60.755851332217205,
+            "max_velocity": 1.980632066750465
+        },
+        {
+            "step": 16,
+            "max_shear_rate": 1.4279238852159932,
+            "mean_viscosity": 59.37358867857329,
+            "max_velocity": 1.9785816237977136
+        },
+        {
+            "step": 17,
+            "max_shear_rate": 1.4118249168092378,
+            "mean_viscosity": 57.80756520422062,
+            "max_velocity": 1.9764602487178533
+        },
+        {
+            "step": 18,
+            "max_shear_rate": 1.3960017933688214,
+            "mean_viscosity": 56.39983722080575,
+            "max_velocity": 1.9742705416780724
+        },
+        {
+            "step": 19,
+            "max_shear_rate": 1.3804472439149444,
+            "mean_viscosity": 54.709048625039344,
+            "max_velocity": 1.9720149399443478
+        },
+        {
+            "step": 20,
+            "max_shear_rate": 1.3651543560299677,
+            "mean_viscosity": 53.05500051007117,
+            "max_velocity": 1.9696957365137395
+        },
+        {
+            "step": 21,
+            "max_shear_rate": 1.3501165418132433,
+            "mean_viscosity": 51.362048481067674,
+            "max_velocity": 1.9673150957523617
+        },
+        {
+            "step": 22,
+            "max_shear_rate": 1.3353275088678929,
+            "mean_viscosity": 49.75076640971855,
+            "max_velocity": 1.9648750666399066
+        },
+        {
+            "step": 23,
+            "max_shear_rate": 1.3207812353460588,
+            "mean_viscosity": 48.738734775241454,
+            "max_velocity": 1.9623775940790746
+        },
+        {
+            "step": 24,
+            "max_shear_rate": 1.3064719483051355,
+            "mean_viscosity": 47.70687255411039,
+            "max_velocity": 1.9598245286242992
+        },
+        {
+            "step": 25,
+            "max_shear_rate": 1.292394104793682,
+            "mean_viscosity": 46.87305855120029,
+            "max_velocity": 1.957217634907147
+        },
+        {
+            "step": 26,
+            "max_shear_rate": 1.2785423752089797,
+            "mean_viscosity": 46.22084128845134,
+            "max_velocity": 1.9545585989779286
+        },
+        {
+            "step": 27,
+            "max_shear_rate": 1.2649116285615947,
+            "mean_viscosity": 45.538427458001436,
+            "max_velocity": 1.9518490347390502
+        },
+        {
+            "step": 28,
+            "max_shear_rate": 1.2514969193534524,
+            "mean_viscosity": 45.10273995079366,
+            "max_velocity": 1.9490904896117576
+        },
+        {
+            "step": 29,
+            "max_shear_rate": 1.2382934758311486,
+            "mean_viscosity": 44.64975766032788,
+            "max_velocity": 1.9462844495515677
+        },
+        {
+            "step": 30,
+            "max_shear_rate": 1.2252966894192605,
+            "mean_viscosity": 44.31571531626233,
+            "max_velocity": 1.9434323435069927
+        },
+        {
+            "step": 31,
+            "max_shear_rate": 1.2125021051725002,
+            "mean_viscosity": 44.122720274324315,
+            "max_velocity": 1.9405355473997228
+        },
+        {
+            "step": 32,
+            "max_shear_rate": 1.199905413112629,
+            "mean_viscosity": 43.91491348111581,
+            "max_velocity": 1.9375953876913272
+        },
+        {
+            "step": 33,
+            "max_shear_rate": 1.1875024403378724,
+            "mean_viscosity": 43.89062056707019,
+            "max_velocity": 1.9346131445909374
+        },
+        {
+            "step": 34,
+            "max_shear_rate": 1.1752891438101993,
+            "mean_viscosity": 43.679216958128066,
+            "max_velocity": 1.9315900549498022
+        },
+        {
+            "step": 35,
+            "max_shear_rate": 1.163261603740236,
+            "mean_viscosity": 43.555914789995654,
+            "max_velocity": 1.9285273148815725
+        },
+        {
+            "step": 36,
+            "max_shear_rate": 1.151416017501407,
+            "mean_viscosity": 43.428302024023715,
+            "max_velocity": 1.9254260821414053
+        },
+        {
+            "step": 37,
+            "max_shear_rate": 1.1397486940146766,
+            "mean_viscosity": 43.26756211417087,
+            "max_velocity": 1.9222874782921944
+        },
+        {
+            "step": 38,
+            "max_shear_rate": 1.1282560485533857,
+            "mean_viscosity": 43.09901946244346,
+            "max_velocity": 1.919112590682253
+        },
+        {
+            "step": 39,
+            "max_shear_rate": 1.1169345979244913,
+            "mean_viscosity": 42.956154383174606,
+            "max_velocity": 1.915902474255455
+        },
+        {
+            "step": 40,
+            "max_shear_rate": 1.1057809559882275,
+            "mean_viscosity": 42.80254439234399,
+            "max_velocity": 1.9126581532120257
+        },
+        {
+            "step": 41,
+            "max_shear_rate": 1.0947918294830377,
+            "mean_viscosity": 42.64241839838438,
+            "max_velocity": 1.9093806225358239
+        },
+        {
+            "step": 42,
+            "max_shear_rate": 1.083964014126746,
+            "mean_viscosity": 42.45813979434184,
+            "max_velocity": 1.9060708494019332
+        },
+        {
+            "step": 43,
+            "max_shear_rate": 1.073294390968413,
+            "mean_viscosity": 42.28029206038572,
+            "max_velocity": 1.9027297744766796
+        },
+        {
+            "step": 44,
+            "max_shear_rate": 1.0627799229683457,
+            "mean_viscosity": 42.03236083387917,
+            "max_velocity": 1.8993583131207241
+        },
+        {
+            "step": 45,
+            "max_shear_rate": 1.052417651786292,
+            "mean_viscosity": 41.8547656055065,
+            "max_velocity": 1.8959573565046115
+        },
+        {
+            "step": 46,
+            "max_shear_rate": 1.042204694760087,
+            "mean_viscosity": 41.61585138660001,
+            "max_velocity": 1.892527772645085
+        },
+        {
+            "step": 47,
+            "max_shear_rate": 1.0321382420589464,
+            "mean_viscosity": 41.37380238914254,
+            "max_velocity": 1.889070407369523
+        },
+        {
+            "step": 48,
+            "max_shear_rate": 1.0222155539972795,
+            "mean_viscosity": 41.182060833323874,
+            "max_velocity": 1.8855860852150437
+        },
+        {
+            "step": 49,
+            "max_shear_rate": 1.0124339584963644,
+            "mean_viscosity": 40.89727287799148,
+            "max_velocity": 1.8820756102681153
+        }
+    ]
+}

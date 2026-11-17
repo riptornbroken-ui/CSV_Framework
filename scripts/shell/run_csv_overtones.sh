@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Script Name: run_csv_overtones.sh
+# Description: Automates the execution of the CSV Kerr overtone damping time 
+#              analysis and generates the comparative diagnostic figure.
+# ==============================================================================
+
+set -euo pipefail
+
+echo "[*] Initializing CSV Kerr Overtone Shift Generation Pipeline..."
+
+python3 - << 'EOF_PYTHON'
+import numpy as np
+import matplotlib.pyplot as plt
+from fisher_forecast_et_ce import bcs_kerr_modes, C
+
+def plot_overtone_shifts(mass_msun=65.0, nu_eff=5.0e10, beta=1.0, save_path="csv_kerr_overtones.png"):
+    spins = np.linspace(0.0, 0.99, 200)
+    tau_gr_curves = {0: [], 1: [], 2: []}
+    tau_csv_curves = {0: [], 1: [], 2: []}
+    pct_shift_curves = {0: [], 1: [], 2: []}
+
+    for j in spins:
+        modes = bcs_kerr_modes(mass_msun, j)
+        for m in modes:
+            n = m["n"]
+            w0 = m["omega_0"]
+            t_gr = m["tau_gr"]
+            
+            gamma_csv = (beta * nu_eff * (w0**2)) / (2.0 * C**2)
+            t_csv = 1.0 / ((1.0 / t_gr) + gamma_csv)
+            
+            tau_gr_curves[n].append(t_gr * 1e3)      # ms
+            tau_csv_curves[n].append(t_csv * 1e3)    # ms
+            pct_shift_curves[n].append(((t_gr - t_csv) / t_gr) * 100.0)
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.2), dpi=150)
+    colors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
+    labels = ["Fundamental (n=0)", "1st Overtone (n=1)", "2nd Overtone (n=2)"]
+
+    # Left Panel: Absolute Damping Times (GR vs CSV)
+    for n in [0, 1, 2]:
+        ax1.plot(spins, tau_gr_curves[n], linestyle="--", color=colors[n], alpha=0.75, label=f"{labels[n]} GR")
+        ax1.plot(spins, tau_csv_curves[n], linestyle="-", color=colors[n], linewidth=2.0, label=f"{labels[n]} CSV")
+
+    ax1.set_title(f"Kerr QNM Damping Times ($M = {mass_msun}\\,M_\\odot$)")
+    ax1.set_xlabel("Dimensionless Black Hole Spin ($j = a/M$)")
+    ax1.set_ylabel("Damping Time $\\tau_n$ (ms)")
+    ax1.grid(True, alpha=0.3)
+    ax1.legend(fontsize=8.5, ncol=2)
+
+    # Right Panel: Percentage Damping Time Reduction
+    for n in [0, 1, 2]:
+        ax2.plot(spins, pct_shift_curves[n], color=colors[n], linewidth=2.2, label=labels[n])
+
+    ax2.set_title(f"CSV Fractional Damping Shift ($\\nu_{{\\mathrm{{eff}}}} = {nu_eff:.1e}\\,\\mathrm{{m}}^2/\\mathrm{{s}}$)")
+    ax2.set_xlabel("Dimensionless Black Hole Spin ($j = a/M$)")
+    ax2.set_ylabel("Damping Time Reduction $\\Delta\\tau_n / \\tau_n^{\\mathrm{GR}}$ (%)")
+    ax2.grid(True, alpha=0.3)
+    ax2.legend(fontsize=9.5)
+
+    plt.tight_layout()
+    plt.savefig(save_path)
+    print(f"[*] Saved overtone spin shift plot to {save_path}")
+
+if __name__ == "__main__":
+    plot_overtone_shifts()
+EOF_PYTHON
+
+echo "[+] Pipeline execution completed successfully."
